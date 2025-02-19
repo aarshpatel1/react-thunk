@@ -1,9 +1,8 @@
-import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	addtodo,
-	toogleTodo,
+	toggleTodo,
 	setTodoFilter,
 	searchTodo,
 	clearError,
@@ -25,8 +24,8 @@ function TodoList() {
 		}
 	};
 
-	const handletoogle = (id) => {
-		dispatch(toogleTodo(id));
+	const handletoggle = (id) => {
+		dispatch(toggleTodo(id));
 	};
 
 	const handleFilterChange = (newFilter) => {
@@ -52,10 +51,7 @@ function TodoList() {
 			<h1>To Do list</h1>
 
 			{error && (
-				<div
-					className="alert alert-danger alert-dismissible fade show"
-					onClick={() => dispatch(clearError())}
-				>
+				<div className="alert alert-danger alert-dismissible fade show">
 					{error}
 					<button
 						type="button"
@@ -68,8 +64,8 @@ function TodoList() {
 
 			<div className="filters">
 
+				{/* add todo form */}
 				<form onSubmit={handleSubmit}>
-
 					<input
 						type="text"
 						value={newTodo}
@@ -86,12 +82,11 @@ function TodoList() {
 					>
 						{status === "loading" ? "Adding" : "Add Todo"}
 					</button>
-
 				</form>
-
 
 				<div className="filter-buttons">
 
+					{/* todo filter search form */}
 					<input
 						type="search"
 						placeholder="seach todo"
@@ -101,7 +96,6 @@ function TodoList() {
 					/>
 
 					<div className="btn-group my-3">
-
 						<button
 							onClick={() => handleFilterChange("all")}
 							className={`btn btn-secondary ${
@@ -128,14 +122,13 @@ function TodoList() {
 						>
 							Completed
 						</button>
-
 					</div>
 
 					<ul className="list-group mt-3">
 						{filterItems.map((todo) => (
 							<li
 								key={todo.id}
-								onClick={() => handletoogle(todo.id)}
+								onClick={() => handletoggle(todo.id)}
 								style={{
 									textDecoration: todo.completed ? "line-through" : "none",
 									cursor: "pointer",
@@ -146,7 +139,7 @@ function TodoList() {
 							</li>
 						))}
 					</ul>
-          
+					
 				</div>
 			</div>
 		</div>

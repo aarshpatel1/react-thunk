@@ -23,7 +23,7 @@ const todosSlice = createSlice({
 			state.status = "idle";
 			state.error = action.payload;
 		},
-		toogleTodoSuccess: (state, action) => {
+		toggleTodoSuccess: (state, action) => {
 			const todo = state.items.find((todo) => todo.id === action.payload);
 			if (todo) {
 				todo.completed = !todo.completed;
@@ -45,7 +45,7 @@ export const {
 	addToSuccess,
 	addTodoError,
 	addTodoStart,
-	toogleTodoSuccess,
+	toggleTodoSuccess,
 	setFilter,
 	setSearchTerm,
 	clearError,
@@ -54,7 +54,7 @@ export const {
 // thunk action creators
 export const addtodo = (text) => (dispatch) => {
 	if (!text.trim()) {
-		dispatch(addTodoError("todo gtext is requried"));
+		dispatch(addTodoError("Todo text can not be empty"));
 		return;
 	}
 
@@ -69,12 +69,12 @@ export const addtodo = (text) => (dispatch) => {
 			})
 		);
 	} catch (error) {
-		dispatch(addTodoError("Failed to add todo"));
+		dispatch(addTodoError("Error adding todo"));
 	}
 };
 
-export const toogleTodo = (id) => (dispatch) => {
-	dispatch(toogleTodoSuccess(id));
+export const toggleTodo = (id) => (dispatch) => {
+	dispatch(toggleTodoSuccess(id));
 };
 
 export const setTodoFilter = (filter) => (dispatch) => {
