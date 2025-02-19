@@ -3,6 +3,8 @@
 ## Overview
 This is a simple yet functional To-Do Manager built using React and Redux Thunk. It allows users to manage their tasks efficiently with three categorized tabs: **All**, **Current**, and **Completed**. The application is styled using **Bootstrap** for a clean and minimal UI.
 
+<video src="./overview.mp4" controls></video>
+
 ## Features
 - Add new tasks
 - Mark tasks as completed
@@ -54,9 +56,6 @@ react-thunk/
 
 ## Contributing
 Feel free to fork this repository and contribute improvements! Submit a pull request for review.
-
-## License
-This project is open-source and available under the [MIT License](LICENSE).
 
 ---
 
