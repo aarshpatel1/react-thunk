@@ -6,9 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
 	return (
 		<Provider store={store}>
-			<div className="app">
-				<TodoList />
-			</div>
+			<TodoList />
 		</Provider>
 	);
 }
